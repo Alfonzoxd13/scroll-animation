@@ -1,0 +1,500 @@
+:root{
+    --blue: rgb(0, 30, 54);
+    --blue-secundary: rgb(0, 12, 20);
+    --color-primario: rgb(255, 255, 255);
+    font-family: 'Arial', sans-serif;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-color: var(--blue-secundary) var(--blue);
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+body::selection{
+    background-color: black;
+}
+h2{
+    margin-top: 0;
+    text-align: center;
+    color: var(--color-primario);
+    font-weight: lighter;
+    font-size: 40px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+section{
+    margin-bottom: 1px;
+}
+header{
+    z-index: 10000;
+    top: 0;
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--blue);
+    border-bottom: 1px solid var(--color-primario);
+    opacity: 0.9;
+}
+.logo{
+    font-size: 27px;
+    text-shadow: 0 0 4px var(--color-primario);
+    color: white;
+}
+header nav{
+    display: flex;
+    column-gap: 10px;
+}
+li{
+    list-style: none;
+}
+header nav li a{
+    color: var(--color-primario);
+    text-decoration: none;
+    position: relative;
+    padding: 10px;
+    opacity: 0.9;
+    transition: all 0.3s;
+}
+header nav li a:hover{
+    opacity: 1;
+    transform: translateY(10px)
+}
+header nav li a:hover:after{
+    content: '';
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primario);
+    position: absolute;
+    animation: scalar 0.3s linear both;
+    box-shadow: 0px -5px 10px var(--color-primario);
+    border-radius: 2px;
+}
+
+.section1{
+    margin: 0;
+    padding: 20px 0 60px 0;
+    display: flex;
+    place-content: center;
+    height: auto;
+    background-color: var(--blue);
+    margin-bottom: 1px;
+}
+
+.pulser{
+    background-image: url(img/kirby.png);
+    width: 100px;
+    height: 100px;
+    background-color: rgb(255, 179, 192);
+    background-size: cover;
+    border-radius: 50%;
+    position: relative;
+    animation: move 1s infinite 1.5s alternate ease-in-out;   
+    margin: 30px;
+    z-index: 1;
+}
+
+.pulser:nth-child(2){
+    animation: move 1.1s infinite 1.5s alternate ease; 
+    background-color: forestgreen;
+}
+
+.pulser:nth-child(3){
+    animation: move 1.2s infinite 1.5s alternate ease; 
+    background-color: blue;
+}
+.pulser:nth-child(2)::before{
+    background: rgb(17, 255, 17);
+}
+
+.pulser:nth-child(3)::before{
+    background: blue;
+}
+
+.pulser::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    background: rgb(255, 179, 192);
+    border-radius: 50%;
+    z-index: -10;
+    animation: pulse 1.5s alternate infinite ease-in-out 3s;
+}
+
+.section2{
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, var(--blue), var(--blue-secundary));
+    max-width: 100%;
+    height: 400px;
+}
+.cuadro{
+    position: relative;  
+    margin: 0px;
+    z-index: 1;
+}
+
+.cuadro:nth-child(1){
+    animation-delay: 0.5s;
+    background-image: url(img/bouwser3-removebg-preview.png);
+    width: 30%;
+    background-size: cover;
+    animation: scalar linear both;
+    animation-timeline:  view();
+    animation-range: entry 30% cover 40%;
+}
+.cuadro:nth-child(2){
+    animation-delay: 1s;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    animation: aparecer ease-in-out both;
+    animation-timeline:  view();
+    animation-range: entry 30% cover 40%;
+    border-left: 2px solid var(--color-primario) ;
+}
+.contenido{
+    color: var(--color-primario);
+    max-width: 80%;
+}
+h3{
+    font-size: 30px;
+    font-weight: lighter;
+    margin: 0;
+}
+.cuadro:nth-child(2)::after{
+    content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	background-image: url(img/descarga.svg);
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	opacity: 0.1;
+}
+
+.section3{
+    background: linear-gradient(to bottom, var(--blue), var(--blue-secundary));
+    position: relative;
+    padding: 50px 20px 50px 20px;
+}
+
+.contenedor-fotos{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 3px;
+}
+.section3::after{
+    content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	background-image: url(img/descarga.svg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	opacity: 0.1;
+}
+
+.cartas{
+    display: flex;
+    align-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+.carta{
+    width: calc(100% - 6px);
+    animation: scalar-fotos linear both;
+    animation-timeline:  view();
+    animation-range: entry 10% cover 50%;
+}
+.carta img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+/* Animaciones */
+.carta-contenedor{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+.carta-estilizada{
+    animation: aparecer linear both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 30%;
+    border-radius: 10px;
+    max-width: 300px;
+    height: 400px;
+    border: 4px solid var(--blue-secundary);
+    overflow: hidden;
+    box-shadow: 0px 10px 1px var(--blue-secundary), 0 0px 4px var(--color-primario), 0 10px 4px var(--color-primario);
+    position: relative;
+    z-index: 2;
+}
+.carta-estilizada img{
+    z-index: 0;
+    height: 100%;
+    animation: transicion-translate-carta 20s infinite alternate ease-in-out;
+}
+
+.carta-estilizada .contenido-carta{
+    position: absolute;
+    bottom: 0;
+    left: 5px;
+    right: 5px;
+    width: calc(100% - 12px);
+    height: auto;
+    background: radial-gradient(rgba(255, 255, 255, 0.753),rgba(255, 255, 255, 0.377));
+    border-radius: 10px;
+    color: var(--blue);
+    opacity: 0.9;
+    z-index: 1;
+    transition: all 0.5s;
+    border: 1px solid var(--color-primario);
+}
+.carta-estilizada:hover .contenido-carta{
+    scale: 1.04;
+    opacity: 1;
+    box-shadow: 0 -20px 20px var(--color-primario);
+}
+.carta-estilizada .contenido-carta h6{
+    margin: 10px;
+    text-align: center;
+    font-size: 15px;
+}
+.carta-estilizada .contenido-carta hr{
+    height: 2px;
+    background-color: var(--blue-secundary);
+}
+.carta-estilizada .contenido-carta p{
+    padding: 2px;
+}
+
+
+.footer {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--blue);
+    color: var(--color-primario);
+    text-align: center;
+    padding:60px 40px 20px 10px;
+}
+.footer a {
+    color: var(--color-primario);
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    font-size: 14px;
+    row-gap: 10px;
+}
+.footer .links{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 20px;
+}
+.footer a:hover {
+    text-decoration: underline;
+}
+.social-icons {
+    margin: 20px;
+}
+.social-icons a{
+    position: relative;
+    padding: 3.1416px;
+}
+.social-icons svg  {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: var(--blue-secundary);
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.5s;
+    color: white;
+}
+.social-icons a:hover svg{
+    transform: translateY(-10px);
+    background-color: var(--color-primario);
+}
+.social-icons a:hover::after{
+    content: '';
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primario);
+    position: absolute;
+    animation: scalar 0.3s linear both;
+    box-shadow: 0px -5px 10px var(--color-primario);
+    border-radius: 2px;
+}
+.bottom-text {
+    margin-top: 15px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+footer .logo {
+    margin-bottom: 15px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.top-link p{
+    font-size: 30px;
+}
+
+/*animaciones*/
+
+@keyframes transicion-translate-carta {
+    from{
+        scale: 1;
+        transform: translateX(0);
+    }
+    40%{
+        scale: 1.2;
+    }
+    60%{
+        scale: 1.2;
+    }
+    to{
+        scale: 1;
+        transform: translateX(-50%);
+    }
+}
+@keyframes scalar-fotos {
+    from{
+        transform: translateX(-200px);
+        opacity: 0;
+        scale: 0;
+    }
+    50%{
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0);
+        opacity: 1;
+        scale: 1;
+    }
+    
+}
+@keyframes pulse {
+    from{
+        opacity: 0;
+    }
+
+    50%{
+        scale: 1.4;
+        opacity: 0.2;
+    }
+    
+    100%{
+        scale: 1.2;
+        opacity: 0.5;
+    }
+}
+@keyframes move {
+    from{
+        transform: translateY(0px);
+    }
+    to{
+        transform: translateY(50px);
+    }
+}
+@keyframes scalar {
+    from{
+        scale: 0;
+    }
+    to{
+        scale: 1;
+    }
+}
+@keyframes aparecer {
+    from{
+        opacity: 0;
+        transform: translateX(-200px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/*responsive*/
+/*contenedor fotos y cartas a los 900px*/
+@media(width <= 900px){
+    .contenedor-fotos{
+        grid-template-columns: 1fr 1fr;
+    }
+    .carta-contenedor{
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 30px;
+    }
+}
+/*section 2 ,cartas a los 700px y animacion aparecer**/
+@media(width <= 700px){
+    header{
+        flex-direction: column;
+        row-gap: 5px;
+    }
+    .section2{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url(img/bouwser3.jpg);
+        background-size: cover;
+    }
+    .cuadro:nth-child(1){
+        display: none;
+    }
+    .cuadro:nth-child(2){
+        border: 2px solid var(--color-primario);
+        background-color: rgba(0, 30, 54, 0.747);
+    }
+    .carta-contenedor{
+        grid-template-columns: 1fr;
+        transition: all 0.5s;
+    }
+    .footer{
+        padding-top: 10px;
+    }
+    .footer .logo{
+        position: relative;
+        margin: 0 0 30px 0;
+    }
+}
+@media(width <= 500px){
+    nav li:first-child{
+        display: none;
+    }
+}
+/*section 2 y cartas a los 350px**/
+@media(width <= 350px){
+    .cuadro:nth-child(2){
+        min-width: 100%;
+    }
+    .section5{
+        padding: 5px;
+    }
+    .carta-estilizada{
+        width: 100%;
+    }
+}
