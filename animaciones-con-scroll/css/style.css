@@ -195,8 +195,7 @@ h3{
 }
 
 .contenedor-fotos{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    columns: 4 200px;
     column-gap: 3px;
 }
 .section3::after{
@@ -441,9 +440,6 @@ footer .logo {
 /*responsive*/
 /*contenedor fotos y cartas a los 900px*/
 @media(width <= 900px){
-    .contenedor-fotos{
-        grid-template-columns: 1fr 1fr;
-    }
     .carta-contenedor{
         grid-template-columns: repeat(2, 1fr);
         row-gap: 30px;
