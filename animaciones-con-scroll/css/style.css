@@ -211,14 +211,6 @@ h3{
 	background-repeat: no-repeat;
 	opacity: 0.1;
 }
-
-.cartas{
-    display: flex;
-    align-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-}
 .carta{
     width: calc(100% - 6px);
     animation: scalar-fotos linear both;
