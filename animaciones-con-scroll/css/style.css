@@ -211,12 +211,6 @@ h3{
 	background-repeat: no-repeat;
 	opacity: 0.1;
 }
-.carta{
-    width: calc(100% - 6px);
-    animation: scalar-fotos linear both;
-    animation-timeline:  view();
-    animation-range: entry 10% cover 50%;
-}
 .carta img{
     width: 100%;
     height: auto;
